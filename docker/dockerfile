@@ -1,0 +1,39 @@
+###########################
+FROM php:7.4-fpm-alpine AS base
+###########################
+WORKDIR /tmp
+
+RUN apk update
+RUN apk --no-cache add php7-json
+
+#########################
+FROM base AS dependencies
+#########################
+ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV COMPOSER_HOME /tmp
+ENV COMPOSER_VERSION 1.7.3
+
+RUN apk add composer
+
+COPY composer.json .
+COPY composer.lock .
+
+RUN composer install --no-dev --no-scripts --no-plugins
+RUN composer dump-autoload
+
+##################
+FROM base AS final
+##################
+WORKDIR /app
+COPY --from=dependencies /tmp/vendor vendor
+
+# RUN docker-php-ext-install pcntl pdo pdo_mysql json
+
+# COPY bin bin
+COPY public public
+COPY src src
+#COPY var var
+
+# Expose port 9000 and start php-fpm server
+EXPOSE 9000
+CMD ["php-fpm"]
