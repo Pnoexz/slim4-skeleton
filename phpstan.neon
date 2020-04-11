@@ -1,0 +1,7 @@
+parameters:
+  autoload_files:
+    - src/bootstrap.php
+    - src/constants.php
+  level: 8
+  paths:
+    - src

@@ -12,7 +12,9 @@
         "ext-json": "*",
         "slim/slim": "^4.4",
         "slim/psr7": "^1.0",
-        "pnoexz/json": "^1.1"
+        "pnoexz/json": "^1.1",
+        "monolog/monolog": "^2.0",
+        "psr/log": "^1.1"
     },
     "license": "MIT",
     "authors": [
@@ -22,6 +24,7 @@
         }
     ],
     "require-dev": {
-        "slevomat/coding-standard": "^6.2"
+        "slevomat/coding-standard": "^6.2",
+        "phpstan/phpstan": "^0.12.18"
     }
 }
