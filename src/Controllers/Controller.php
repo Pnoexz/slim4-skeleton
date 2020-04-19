@@ -33,6 +33,7 @@ abstract class Controller
             ->withAddedHeader(
                 'Access-Control-Allow-Headers',
                 implode(', ', $allowedHeaders)
-            );
+            )
+        ;
     }
 }
