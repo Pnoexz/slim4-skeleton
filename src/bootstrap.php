@@ -11,7 +11,12 @@ use Slim\Routing\RouteCollectorProxy;
 require_once 'constants.php';
 require_once VENDOR_PATH . 'autoload.php';
 
-$app = AppFactory::create();
+$containerBuilder = new \DI\ContainerBuilder();
+$containerBuilder->useAnnotations(true);
+$containerBuilder->addDefinitions(__DIR__ . '/dependencies.php');
+$container = $containerBuilder->build();
+
+$app = AppFactory::create(null, $container);
 
 $app->addRoutingMiddleware();
 $app->group('/api/v0', static function (RouteCollectorProxy $group): void {
