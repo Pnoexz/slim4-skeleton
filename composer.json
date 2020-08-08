@@ -15,9 +15,11 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
+        "doctrine/annotations": "^1.10",
         "monolog/monolog": "^2.0",
         "php-di/php-di": "^6.2",
         "pnoexz/json": "^1.1",
+        "pnoexz/php-api-exception": "^1.0",
         "psr/log": "^1.1",
         "slim/psr7": "^1.0",
         "slim/slim": "^4.4"

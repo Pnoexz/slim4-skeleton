@@ -12,7 +12,7 @@ final class HealthCheck extends Controller
 {
     public function __invoke(Request $request, Response $response): Response
     {
-        $body = ['status' => 'OK', 'timestamp' => \time()];
+        $body = ['status' => true, 'timestamp' => \time()];
         return $this->returnJsonResponse($response, $body);
     }
 }
