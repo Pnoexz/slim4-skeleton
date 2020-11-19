@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Tests\Controllers\Status;
 
 use App\Controllers\Status\HealthCheck;
 use PHPUnit\Framework\TestCase;
